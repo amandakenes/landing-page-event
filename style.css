@@ -6,6 +6,10 @@
   font-family: "Poppins";
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .hero {
   background-image: url(assets/hero-bg.jpg);
   background-position: center;
@@ -301,7 +305,8 @@ iframe {
 }
 
 .attendance-form form {
-    margin-top: 20px;
+    margin-top: 35px;
+    padding-bottom: 25px;
 }
 
 .attendance-form label {
@@ -333,4 +338,17 @@ iframe {
     cursor: pointer;
 }
 
+footer {
+  padding: 25px;
+  background-color: rgb(235, 231, 223);
+}
+
+footer p {
+  color: #c11cad;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+}
 
