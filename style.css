@@ -315,8 +315,10 @@ iframe {
     border: none;
 }
 
-.attendance-form input[type="number"] {
-    width: 150px;
+.attendance-form input {
+  padding: 3px;
+  border-radius: 2px;
+  width: 220px;
 }
 
 .attendance-form button {
