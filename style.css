@@ -6,6 +6,10 @@
   font-family: "Poppins";
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
