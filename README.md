@@ -23,4 +23,5 @@ Projeto do programa Descodificadas - Trilha onboarding 1/2024
 <ol>
     <li>HTML</li>
     <li>CSS</li>
+    <li>Git</li>
 </ol>
