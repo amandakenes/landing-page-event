@@ -8,6 +8,7 @@
 
 body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -29,6 +30,72 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: space-between;
   color: white;
+}
+
+nav h2 {
+  margin-left: 130px;
+}
+
+.dropdown-menu {
+  margin-right: 120px;
+}
+
+.hero .dropdown-menu ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-icon {
+  color: #c11cad;
+  font-size: 30px;
+}
+
+.hero .dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border: none;
+  transition: border 0.1s ease-in-out;
+}
+
+.hero .dropdown-menu a:hover {
+  border-bottom: 6px solid #c11cad;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.hero .dropdown-menu .submenu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hero .dropdown-menu .submenu li {
+  margin-bottom: 5px;
+}
+
+.hero .dropdown-menu .submenu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
+}
+
+.hero .dropdown-menu .submenu a:hover {
+  color: #c11cad;
+  border: 0;
+  border-radius: 0;
+  transition: 0.2s;
 }
 
 .hero ul {
@@ -104,36 +171,99 @@ body::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.about-imgs {
+.cards-container {
   display: flex;
+  flex-direction: row;
+  gap: 30px;
   align-items: center;
   justify-content: center;
-  gap: 50px;
 }
 
-.about-imgs img {
-  width: 220px;
-  height: 230px;
+.card {
+  width: 250px;
+  height: 280px;
+  perspective: 1000px;
 }
 
-.about-imgs p,
-.about-imgs legend {
-  text-align: center;
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  border-radius: 8px;
 }
 
-.about-imgs p {
-  margin-bottom: 10px;
-  font-weight: 300;
-  font-size: 13.5px;
-  letter-spacing: 0.5px;
+.card-front {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.about-imgs legend {
-  margin-top: 4px;
+.card-front p {
+  font-size: 30px;
+  margin: 20px 0;
+  color: #c11cad;
+  font-weight: bold;
+}
+
+.card-back {
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.card-back img {
+  width: 200px;
+  height: 100px;
+}
+
+.card-back p {
+  margin: 14px 0;
   font-size: 11px;
   letter-spacing: 0.4px;
   font-weight: 300;
   font-style: italic;
+  width: 200px;
+  text-align: center;
+}
+
+#flip-card-btn1,
+#flip-card-btn2,
+#flip-card-btn3,
+#unflip-card-btn1,
+#unflip-card-btn2,
+#unflip-card-btn3 {
+  border: none;
+  background-color: #c11cad;
+  width: 130px;
+  border-radius: 8px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+.about-imgs {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .goal-text {
@@ -194,6 +324,7 @@ body::-webkit-scrollbar {
 .talkers img {
   width: 223px;
   height: 220px;
+  border-radius: 8px;
 }
 
 .talkers h3 {
@@ -236,7 +367,7 @@ body::-webkit-scrollbar {
 }
 
 .address-name {
-    padding-right: 60px;
+  padding-right: 60px;
 }
 
 .address-name h3 {
@@ -283,45 +414,46 @@ iframe {
 }
 
 .attendance {
-    background-color: #c11cad;
-    padding: 50px;
+  background-color: #c11cad;
+  padding: 50px;
 }
 
-.vid, .attendance-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.vid,
+.attendance-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .vid {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 .attendance-form {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 .attendance-form p {
-    font-size: 18px;
-    font-weight: 300;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .attendance-form form {
-    margin-top: 35px;
-    padding-bottom: 25px;
+  margin-top: 35px;
+  padding-bottom: 25px;
 }
 
 .attendance-form label {
-    font-size: 15px;
-    font-weight: 200;
-    padding-left: 15px;
+  font-size: 15px;
+  font-weight: 200;
+  padding-left: 15px;
 }
 
 .attendance-form input {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 .attendance-form input {
@@ -330,16 +462,87 @@ iframe {
   width: 220px;
 }
 
-.attendance-form button {
-    width: 130px;
-    background-color: white;
-    color: #c11cad;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 3px;
-    margin-left: 15px;
-    cursor: pointer;
+.glow-on-hover {
+  margin-left: 10px;
+  width: 100px;
+  border: none;
+  outline: none;
+  color: #c11cad;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.glow-on-hover a {
+  text-decoration: none;
+  color: #c11cad;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background: white;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 footer {
@@ -356,3 +559,218 @@ footer p {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1024px) {
+  .hero {
+    padding: 10px 20px 20px 20px;
+    height: 400px;
+  }
+
+  nav h2 {
+    margin-left: 20px;
+  }
+
+  .dropdown-menu {
+    margin-right: 20px;
+  }
+
+  .main-hero {
+    margin-top: 130px;
+  }
+
+  .about {
+    padding: 40px 30px 60px 30px;
+  }
+
+  .about-text button {
+    width: 250px;
+    margin-bottom: 100px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-front p {
+    font-size: 24px;
+  }
+
+  .goal-text {
+    padding: 100px 20px;
+  }
+
+  .goal-text p {
+    font-size: 24px;
+    width: auto;
+  }
+
+  .goal-img img {
+    width: 100%;
+  }
+
+  .talkers {
+    padding: 40px 20px 50px 20px;
+  }
+
+  .talkers img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .talkers h3 {
+    font-size: 14px;
+  }
+
+  .talkers p {
+    font-size: 10px;
+  }
+
+  .address {
+    padding: 30px 20px 60px 20px;
+  }
+
+  #address-desc {
+    font-size: 14px;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .address-imgs img {
+    width: 100%;
+    height: auto;
+  }
+
+  .attendance {
+    padding: 30px;
+  }
+
+  .attendance-form p {
+    font-size: 16px;
+  }
+
+  .attendance-form input {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    padding: 10px 10px 20px 10px;
+    height: 300px;
+  }
+
+  .main-hero {
+    margin-top: 100px;
+  }
+
+  nav h2 {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    margin-right: 10px;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+  }
+
+  .about {
+    padding: 30px 20px 50px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text button {
+    width: 200px;
+    margin-bottom: 80px;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-front p {
+    font-size: 20px;
+  }
+
+  .goal-text {
+    padding: 80px 10px;
+  }
+
+  .goal-text p {
+    font-size: 20px;
+  }
+
+  .goal-img img {
+    width: 100%;
+  }
+
+  .talkers {
+    padding: 30px 20px 40px 20px;
+  }
+
+  .talkers img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .talkers h3 {
+    font-size: 12px;
+  }
+
+  .talkers p {
+    font-size: 9px;
+  }
+
+  .address {
+    padding: 20px 20px 50px 20px;
+  }
+
+  .address h2 {
+    font-size: 24px;
+  }
+
+  .address-name h3 {
+    font-size: 15px;
+  }
+
+  .address-name p {
+    font-size: 13px;
+  }
+
+  #address-desc {
+    font-size: 12px;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .address-imgs img {
+    width: 100%;
+    height: auto;
+  }
+
+  .attendance {
+    padding: 20px;
+  }
+
+  .attendance-form p {
+    font-size: 14px;
+  }
+
+  .attendance-form input {
+    width: 160px;
+  }
+}

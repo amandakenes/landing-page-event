@@ -2,33 +2,45 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Evento de uma Palestra sobre Tecnologia, com atividades e workshops e palestrantes especiais">
-    <meta name="keywords" content="Eventos, Palestras, Tecnologia">
-    <meta name="author" content="Amanda Kenes">
+    <meta
+      name="description"
+      content="Evento de uma Palestra sobre Tecnologia, com atividades e workshops e palestrantes especiais"
+    />
+    <meta name="keywords" content="Eventos, Palestras, Tecnologia" />
+    <meta name="author" content="Amanda Kenes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Evento</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/a052c6b38c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="hero">
       <header>
         <nav>
           <h2>Evento</h2>
-          <ul>
-            <li>
-              <a href="#main">Página Inicial</a>
-            </li>
-            <li>
-              <a href="#schedule">Programação</a>
-            </li>
-            <li>
-              <a href="#talkers">Palestrantes</a>
-            </li>
-            <li>
-              <a href="#address">Local</a>
-            </li>
-          </ul>
+          <div class="dropdown-menu">
+            <ul>
+              <li>
+                <a href="#main">Página Inicial</a>
+              </li>
+              <li>
+                <a href="#schedule">Programação</a>
+              </li>
+              <li class="dropdown">
+                <a href="#">
+                  <i class="fa-solid fa-bars menu-icon"></i>
+                </a>
+                <ul class="submenu">
+                  <li><a href="#talkers">Palestrantes</a></li>
+                  <li><a href="#address">Local</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
       <div class="main-hero">
@@ -45,21 +57,41 @@
           </h2>
           <button>Confirmar presença</button>
         </div>
-        <div id="schedule" class="about-imgs">
-          <div id="img01">
-            <p>Dia 1</p>
-            <img src="assets/hero-bg.jpg" alt="" />
-            <legend>Descrição breve sobre o dia 1</legend>
+        <div class="cards-container">
+          <div class="card" id="card1">
+            <div class="card-front">
+              <p>Dia 1</p>
+              <button id="flip-card-btn1">Saiba mais</button>
+            </div>
+            <div class="card-back">
+              <img src="assets/preview.png" alt="" />
+              <p>Descrição breve sobre os eventos do dia 1</p>
+              <button id="unflip-card-btn1">Voltar</button>
+            </div>
           </div>
-          <div id="img02">
-            <p>Dia 2</p>
-            <img src="assets/hero-bg.jpg" alt="" />
-            <legend>Descrição breve sobre o dia 2</legend>
+
+          <div class="card" id="card2">
+            <div class="card-front">
+              <p>Dia 2</p>
+              <button id="flip-card-btn2">Saiba mais</button>
+            </div>
+            <div class="card-back">
+              <img src="assets/preview.png" alt="" />
+              <p>Descrição breve sobre os eventos do dia 3</p>
+              <button id="unflip-card-btn2">Voltar</button>
+            </div>
           </div>
-          <div id="img03">
-            <p>Dia 3</p>
-            <img src="assets/hero-bg.jpg" alt="" />
-            <legend>Descrição breve sobre o dia 3</legend>
+
+          <div class="card" id="card3">
+            <div class="card-front">
+              <p>Dia 3</p>
+              <button id="flip-card-btn3">Saiba mais</button>
+            </div>
+            <div class="card-back">
+              <img src="assets/preview.png" alt="" />
+              <p>Descrição breve sobre os eventos do dia 3</p>
+              <button id="unflip-card-btn3">Voltar</button>
+            </div>
           </div>
         </div>
       </div>
@@ -75,8 +107,9 @@
           </legend>
         </div>
       </div>
+
       <div id="talkers" class="talkers">
-        <h2>Palestrantes</h2>
+        <h2>Palestrantes</h2>        
         <table id="first-row">
           <tr>
             <td>
@@ -94,20 +127,11 @@
               <h3>Nome</h3>
               <p>Sobre essa pessoa</p>
             </td>
-            <td>
-              <img src="assets/hero-bg.jpg" alt="" />
-              <h3>Nome</h3>
-              <p>Sobre essa pessoa</p>
-            </td>
           </tr>
         </table>
+        
         <table id="second-row">
           <tr>
-            <td>
-              <img src="assets/hero-bg.jpg" alt="" />
-              <h3>Nome</h3>
-              <p>Sobre essa pessoa</p>
-            </td>
             <td>
               <img src="assets/hero-bg.jpg" alt="" />
               <h3>Nome</h3>
@@ -126,6 +150,7 @@
           </tr>
         </table>
       </div>
+
       <div id="address" class="address">
         <h2>Local</h2>
         <div class="address-text">
@@ -173,18 +198,40 @@
           </p>
           <form>
             <label for="name" id="name">Nome:</label>
-            <input type="text" id="name" required placeholder="Digite seu nome e sobrenome">
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Digite seu nome e sobrenome"
+            />
             <label for="email" id="email">E-mail:</label>
-            <input type="email" id="email" required placeholder="seuemail@gmail.com.br">
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="seuemail@gmail.com.br"
+            />
             <label for="number" id="number">Telefone:</label>
-            <input type="number" id="number" min="1" max="9" required placeholder="(DDD) + Número de telefone">
-            <button>Inscrever-se</button>
+            <input
+              type="number"
+              id="number"
+              min="1"
+              max="9"
+              required
+              placeholder="(DDD) + Número de telefone"
+            />
+
+            <button class="glow-on-hover" type="button">
+              <a href="formLink.html" target="_blank">Inscreva-se</a>
+            </button>
           </form>
         </div>
       </div>
     </main>
     <footer>
-      <p>Criado por  &copy Amanda Kenes</p>
+      <p>Criado por &copy Amanda Kenes</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
